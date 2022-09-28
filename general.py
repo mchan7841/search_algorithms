@@ -1,8 +1,6 @@
 """A1 Hua Rong Dao Game Tree using A* and DFS"""
 
 import copy
-import queue
-import sys
 SOLUTIONTL = 13
 SOLUTIONBR = 18
 
@@ -118,6 +116,7 @@ def get_sequence(state: GameState, explored: dict, start: str) -> str:
     str1 = ""
     counter = 0
     cur = state_to_string(state)
+    states = len(explored)
     # Recursing up the game tree to get the sequence
     while cur != s:
         str1 = cur[0:4] + "\n" + cur[4:8] + "\n" + cur[8:12] + "\n" + cur[12:16] + "\n" + cur[
@@ -128,8 +127,30 @@ def get_sequence(state: GameState, explored: dict, start: str) -> str:
     # Adding the initial state
     str1 = cur[0:4] + "\n" + cur[4:8] + "\n" + cur[8:12] + "\n" + \
            cur[12:16] + "\n" + cur[16:20] + "\n\n" + str1
-    str1 = "Cost of the solution: " + str(counter) + "\n" + str1
+    str1 = "Cost of the solution: " + str(counter) + " | Number of states explored: " \
+           + str(states) + "\n" + str1
     return str1.rstrip("\n")
+
+
+def get_results(state: GameState, explored: dict, start: str) -> str:
+    """
+    Given a state and a game tree return the file output as listed in A1
+    :param start: The starting state
+    :param state: The goal state
+    :param explored: The dictionary that stores the tree
+    :return: A string to be parsed to a file
+    """
+    # Initializing variables
+    s = start
+    str1 = "Cost of solution: "
+    counter = 0
+    states = len(explored)
+    cur = state_to_string(state)
+    # Recursing up the game tree to get the sequence
+    while cur != s:
+        cur = explored[cur]
+        counter += 1
+    return str1 + str(counter) + " | Number of states explored: " + str(states)
 
 
 def print_grid(grid: list) -> None:
@@ -179,13 +200,13 @@ def find_succesors(state: GameState) -> list:
                                                                                       index[
                                                                                           1] + 4)]))
                 elif index[0] % 4 == 1:
-                    if state.grid[index[0] + 3] == '3':
+                    if state.grid[index[0] + 3] == '2':
                         pass
                     else:
                         states.append(create_grid(state.grid, [(index[0], index[0] + 4),
                                                                (index[1], index[1] + 4)]))
                 elif index[0] % 4 == 2:
-                    if state.grid[index[1] + 5] != '3':
+                    if state.grid[index[1] + 3] != '2':
                         states.append(create_grid(state.grid, [(index[0], index[0] + 4),
                                                                (index[1], index[1] + 4)]))
             elif state.grid[index[0] + 4] == '3':
@@ -193,7 +214,7 @@ def find_succesors(state: GameState) -> list:
             elif state.grid[index[0] + 4] == '1' and state.grid[index[1] + 4] == '1':
                 states.append(create_grid(state.grid, [(index[0], index[0] + 8),
                                                        (index[1], index[1] + 8)]))
-            # Second position
+                # Second position
             if state.grid[index[1] + 4] == '4':
                 states.append(create_grid(state.grid, [(index[1], index[1] + 4)]))
             elif state.grid[index[1] + 4] == '3':
@@ -209,13 +230,13 @@ def find_succesors(state: GameState) -> list:
                     states.append(create_grid(state.grid, [(index[0], index[0] - 4),
                                                            (index[1], index[1] - 4)]))
                 elif index[0] % 4 == 1:
-                    if state.grid[index[0] + 3] == '3':
+                    if state.grid[index[0] - 2] == '2':
                         pass
                     else:
                         states.append(create_grid(state.grid, [(index[0], index[0] - 4),
                                                                (index[1], index[1] - 4)]))
                 elif index[0] % 4 == 2:
-                    if state.grid[index[1] + 5] != '3':
+                    if state.grid[index[0] - 5] != '2':
                         states.append(create_grid(state.grid, [(index[0], index[0] - 4),
                                                                (index[1], index[1] - 4)]))
             elif state.grid[index[0] - 4] == '3':
@@ -223,14 +244,14 @@ def find_succesors(state: GameState) -> list:
             elif state.grid[index[0] - 4] == '1' and state.grid[index[1] - 4] == '1':
                 states.append(create_grid(state.grid, [(index[0], index[0] - 8),
                                                        (index[1], index[1] - 8)]))
-            # Second position
+                # Second position
             if state.grid[index[1] - 4] == '4':
                 states.append(create_grid(state.grid, [(index[1], index[1] - 4)]))
             elif state.grid[index[1] - 4] == '3':
                 states.append(create_grid(state.grid, [(index[1], index[1] - 8)]))
             else:
                 pass
-        # Check horizontals
+                # Check horizontals
         if pos2[1] < 3:
             if state.grid[index[1] + 1] == '4':
                 states.append(create_grid(state.grid, [(index[1], index[1] + 1)]))
@@ -287,7 +308,7 @@ def find_succesors(state: GameState) -> list:
             elif state.grid[index[0] + 1] == '1' and state.grid[index[1] + 1] == '1':
                 states.append(create_grid(state.grid, [(index[0], index[0] + 2),
                                                        (index[1], index[1] + 2)]))
-            # Second position
+                # Second position
             if state.grid[index[1] + 1] == '4':
                 states.append(create_grid(state.grid, [(index[1], index[1] + 1)]))
             elif state.grid[index[1] + 1] == '2':
@@ -323,7 +344,7 @@ def find_succesors(state: GameState) -> list:
             elif state.grid[index[0] - 1] == '1' and state.grid[index[1] - 1] == '1':
                 states.append(create_grid(state.grid, [(index[0], index[0] - 2),
                                                        (index[1], index[1] - 2)]))
-            # Second position
+                # Second position
             if state.grid[index[1] - 1] == '4':
                 states.append(create_grid(state.grid, [(index[1], index[1] - 1)]))
             elif state.grid[index[1] - 1] == '2':

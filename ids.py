@@ -35,4 +35,5 @@ def ids(state: GameState) -> (GameState, dict, str):
                     explored[state_to_string(next)] = state_to_string(current)
                     frontier.put(next)
                     limit_dict[state_to_string(next)] = limit_dict[state_to_string(current)] + 1
+        limit += 1
     return current, explored, start
