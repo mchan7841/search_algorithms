@@ -4,7 +4,7 @@ import queue
 from general import check_goal_state, find_succesors, GameState, state_to_string
 
 
-def dfs(state: GameState) -> (GameState, dict, str):
+def ids(state: GameState) -> (GameState, dict, str):
     """
     Iterative depth first search algorithm
     :param state: Starting state
