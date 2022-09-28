@@ -26,3 +26,4 @@ def dfs(state: GameState) -> (GameState, dict, str):
                 explored[state_to_string(next)] = state_to_string(current)
                 frontier.put(next)
     return current, explored, start
+
