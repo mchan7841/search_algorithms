@@ -1,4 +1,4 @@
-""""""
+""" A* search algorithm """
 import queue
 
 from gbfs import manhattan, my_heuristic

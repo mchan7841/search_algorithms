@@ -1,4 +1,4 @@
-""" """
+""" Main file to create files from command line arguments"""
 import sys
 
 from a_star import a_star
@@ -6,7 +6,7 @@ from bfs import bfs
 from dfs import dfs
 from gbfs import gbfs
 from ids import ids
-from general import get_sequence, read_input, get_results
+from general import get_sequence, read_input
 from ucs import ucs
 
 if __name__ == '__main__':

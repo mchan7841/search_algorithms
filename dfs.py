@@ -1,4 +1,4 @@
-""" """
+""" Depth first search algorithm """
 import queue
 
 from general import check_goal_state, find_succesors, GameState, state_to_string

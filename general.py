@@ -1,4 +1,4 @@
-"""A1 Hua Rong Dao Game Tree using A* and DFS"""
+""" Klotski sliding puzzle general functions used across all searches """
 
 import copy
 SOLUTIONTL = 13
