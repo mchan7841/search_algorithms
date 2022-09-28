@@ -16,7 +16,7 @@ def bfs(state: GameState) -> (GameState, dict, str):
     frontier.put(state)
     current = GameState([])
     start = state_to_string(state)
-    # Exploring the frontier using an dfs algorithm
+    # Exploring the frontier using an bfs algorithm
     while not frontier.empty():
         current = frontier.get()
         if check_goal_state(current):

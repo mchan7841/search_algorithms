@@ -49,13 +49,12 @@ def gbfs(state: GameState, heuristic: bool) -> (GameState, dict, str):
     # Initializing variables
     frontier = queue.PriorityQueue()
     explored = {}
-    cost = {}
     frontier.put((manhattan(state), state))
     current = GameState([])
     counter = 0
     start = state_to_string(state)
 
-    # Exploring the frontier using an A* algorithm
+    # Exploring the frontier using the gbfs algorithm
     while not frontier.empty():
         current = frontier.get()[1]
         if check_goal_state(current):

@@ -15,6 +15,7 @@ def ids(state: GameState) -> (GameState, dict, str):
     explored = {}
     current = GameState([])
     start = state_to_string(state)
+    # Exploration with a depth limit
     while not found:
         # Initializing variables
         frontier = queue.LifoQueue()
@@ -22,7 +23,7 @@ def ids(state: GameState) -> (GameState, dict, str):
         limit_dict = {state_to_string(state): 0}
         frontier.put(state)
         current = GameState([])
-        # Exploring the frontier using an dfs algorithm
+        # Exploring the frontier using an dfs algorithm until limit is met
         while not frontier.empty():
             current = frontier.get()
             if check_goal_state(current):

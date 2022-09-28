@@ -20,7 +20,7 @@ def ucs(state: GameState) -> (GameState, dict, str):
     counter = 0
     start = state_to_string(state)
 
-    # Exploring the frontier using an A* algorithm
+    # Exploring the frontier using the ucs algorithm
     while not frontier.empty():
         current = frontier.get()[1]
         if check_goal_state(current):
