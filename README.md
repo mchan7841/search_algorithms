@@ -183,9 +183,9 @@ Unifrom cost search acieved the same reults as breadth-first search mainly becau
 ### Admissibility
 The definition of a heuristic function being admissable is shown below:
 ```math
-A heuristic function $h(n)$ is admissbale if and only if it never overestimates the cost of the cheapest path from state $n$ to the goal state.
+A heuristic function h(n) is admissbale if and only if it never overestimates the cost of the cheapest path from state n to the goal state.
 
-Let $h^*(n)$ denote the cost of the cheapest path from state $n$ to a goal state. Then, an admissbale $h(n)$ statisfies: For every state $n$, $0 \leq h(n) \leq h^*(n)$
+Let h^*(n) denote the cost of the cheapest path from state n to a goal state. Then, an admissbale $h(n)$ statisfies: For every state n, 0 \leq h(n) \leq h^*(n)
 ```
 
 ### Manhattan Distance
