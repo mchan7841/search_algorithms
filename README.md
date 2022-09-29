@@ -3,7 +3,9 @@
 ## Game
 Klotski is a simple wooden sliding block puzzle game originating from the 2oth century. In the case of this project Klotski refers to a specfic layout of 10 blocks where the goal is to move the largest block out of the board. In this configuration, there is 1 2x2 block, 5 1x2 blocks, 4 1x1 blocks and two empty spaces in a 3x5 grid. To get the special 2x2 piece to the goal, the mpty spaces must be manipulated to slide the rest of the blocks out of the way.
 
-![alt text](klotski.png "Klotski Example")
+<p align="center">
+  <img width="300" height="400" src="klotski.png">
+</p>
 
 ## Notation and Formatting
 
