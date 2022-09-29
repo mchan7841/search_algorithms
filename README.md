@@ -37,3 +37,5 @@ python3 main.py input.txt dfs_ouput.txt ids_ouput.txt bfs_output.txt ucs_output.
 ## Breadth First Search
 
 ## A* Search
+
+# References
