@@ -6,7 +6,7 @@ from general import check_goal_state, find_succesors, GameState, state_to_string
 
 def manhattan(state: GameState) -> int:
     """
-    Heuristic for A* using manhattan distances
+    Heuristic for klotski using manhattan distances
     :param state: Current game state
     :return: Manhattan distance
     """
@@ -17,7 +17,7 @@ def manhattan(state: GameState) -> int:
 
 def my_heuristic(state: GameState) -> int:
     """
-    Heuristic for A* using manhattan distances and the number of blocks in way of the goal state
+    Heuristic for klotski using manhattan distances and the number of blocks in way of the goal state
     :param state: Current game state
     :return: Manhattan distance
     """
