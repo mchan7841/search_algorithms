@@ -1,5 +1,11 @@
 # Overview
 
+## Game
+
+## Notation and Formatting
+
+## Running the program
+
 # Uninformed Search Algoirthms
 
 ## Depth First Search
