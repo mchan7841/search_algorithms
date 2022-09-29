@@ -1,11 +1,23 @@
 # Overview
 
 ## Game
+Klotski is a simple wooden sliding block puzzle game originating from the 2oth century. In the case of this project Klotski refers to a specfic layout of 10 blocks where the goal is to move the largest block out of the board. In this configuration, there is 1 2x2 block, 5 1x2 blocks, 4 1x1 blocks and two empty spaces in a 3x5 grid. To get the special 2x2 piece to the goal, the mpty spaces must be manipulated to slide the rest of the blocks out of the way.
+
+pic
 
 ## Notation and Formatting
 
-## Running the program
+### Input Formatting
+The input format for this program is a text file with five lines and four numbers on each line (no spaces). 0 repersents an empty space, 1 repersents 1/4 of the 2x2 piece, 2-6 repersent 1/2 of a 1x2 piece and 7 repersents a 1x1 piece. An example of this format can be found in start_state.txt.
 
+### Output Formatting
+The output format for this program is a similar to the input with five lines and four numbers on each line (no spaces). However, 0 repersents an empty space, 1 repersents 1/4 of the 2x2 piece, 2 repersent 1/2 of a 1x2 pieces that are horizontal, 3 reperents 1/2 of the 1x2 pieces that are vertical, and 7 repersents a 1x1 piece. The ouputs are formatted with the cost of the solution (the number of steps to reach the goal) and the number of states explored to reach the goal at the top. This is then followed by the sequence of moves the algorithm used to get to the goal. An example of this format can be found in any of the ouput files.
+
+## Running the program
+This program can be run with the following code below in the command line (when you are in the directory with main.py). It will create 7 different text files, one for each search and different heruistics that will store the ouput of the different search algorithms. The text files for the ouputs can be renamed if desired however the search ouputs are mapped to the text files in the order shown in the code. All of the ouputs are labeled as the search function and the reason there are two A* ouputs is the use of different heuistic functions.
+```
+python3 main.py input.txt dfs_ouput.txt ids_ouput.txt bfs_output.txt ucs_output.txt gbfs_output.txt a_star_ouput.txt my_a_star_output.txt
+```
 # Uninformed Search Algoirthms
 
 ## Depth First Search
