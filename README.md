@@ -20,6 +20,26 @@ This program can be run with the following code below in the command line (when 
 ```
 python3 main.py input.txt dfs_ouput.txt ids_ouput.txt bfs_output.txt ucs_output.txt gbfs_output.txt a_star_ouput.txt my_a_star_output.txt
 ```
+
+## Search Pseudo Code
+All of the algorithms implmented for this projected are based of the basic search algorithm shwon below:
+```
+Successor_States(State) -> list[States]:
+  return list of possible next states
+  
+Goal_Test(State) -> bool:
+  return [if state is the goal state]
+  
+Search(Intial_State) -> Final_State:
+  frontier = [intiali state]
+  while frontier is not empty:
+    select and remove state current from frontier
+    if Goal_Test(current):
+      return current
+    frontier.add(Successor_States(current))
+  return no solution
+```
+
 # Uninformed Search Algoirthms
 
 ## Depth First Search
