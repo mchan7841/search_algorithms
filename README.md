@@ -183,7 +183,7 @@ Unifrom cost search acieved the same reults as breadth-first search mainly becau
 ### Admissibility
 The definition of a heuristic function being admissable is shown below:
 <p align="center">
-  <img src="hueristicadmis.png">
+  <img src="heuristicadmis.png">
 </p>
 
 
