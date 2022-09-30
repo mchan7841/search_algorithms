@@ -1,7 +1,7 @@
 # Overview
 
 ## Game
-Klotski is a simple wooden sliding block puzzle game originating from the 2oth century. In the case of this project, Klotski refers to a specific layout of 10 blocks where the goal is to move the largest block out of the board. In this configuration, there is 1 2x2 block, 5 1x2 blocks, 4 1x1 blocks, and two empty spaces in a 3x5 grid. To get the special 2x2 piece to the goal, the empty spaces must be manipulated to slide the rest of the blocks out of the way.
+Klotski is a simple wooden sliding block puzzle game originating from the 2oth century. In the case of this project, Klotski refers to a specific layout of 10 blocks where the goal is to move the largest block out of the board. In this configuration, there is 1 2x2 block, 5 1x2 blocks, 4 1x1 blocks, and two empty spaces in a 3x5 grid. To get the special 2x2 piece to the goal, the empty spaces must be manipulated to slide the rest of the blocks out of the way (Wikipedia, 2022).
 
 <p align="center">
   <img width="240" height="300" src="klotski.png">
@@ -156,6 +156,9 @@ Successor_States(State):
   
 Goal_Test(State):
   return if state is the goal state
+
+Cost(State):
+  return the cost to get to the curren state
   
 Search(Intial_State):
   frontier <- priority queue
@@ -194,7 +197,81 @@ The manhattan distance is calculated by taking the horizontal and vertical dista
 Along with the manhattan distance which is the minimum number of moves needed to move the 2x2 piece to the goal state, for the goal piece to be in the correct position all other pieces currently occupying the goal area must be moved. So the improved heuristic will return manhattan distanc + number of pieces in the goal area.
 
 ## Greedy Breadth-First Search
+### Premise
+Using the serach algorithm, we will explore the possible game states by going through the frontier and looking at the state with the lowest heursitic value. TODO: add more
+
+### Pseudo Code
+```
+Successor_States(State):
+  return list of possible next states
+  
+Goal_Test(State):
+  return if state is the goal state
+  
+Heuristic(State):
+  return the heuristic value of current state based on the selected function
+  
+Search(Intial_State):
+  frontier <- priority queue
+  frontier.push(0, Intital_State)
+  while frontier is not empty:
+    current <- frontier.pop
+    if Goal_Test(current):
+      return current
+    for succesor in Successor_States(current):
+      frontier.push(heuristic(current), succesor)
+  return no solution
+```
+### Results (Manhattan Heuristic)
+Cost of solution found: 320
+
+Number of states explored: 3959
+
+### Conclusion
+
+Greedy breadth-first search returned the solution with the smallest number of states explored but did not find the optimal solution. This makes GBFS the most efficient algorithm space-wise but does no achieve the goal stated in the overview (find the optimal solution).
 
 ## A* Search
+### Premise
+Using the serach algorithm, we will explore the possible game states by going through the frontier and looking at the state with the lowest heursitic value and cost. This can be modelled by f(n) = h(n) + g(n) where f(n) is the states priority, h(n) is the heuristic value, and g(n) is the cost to get to the state. 
+### Pseudo Code
+```
+Successor_States(State):
+  return list of possible next states
+  
+Goal_Test(State):
+  return if state is the goal state
+  
+Heuristic(State):
+  return the heuristic value of current state based on the selected function
 
+Cost(State):
+  return the cost to get to the curren state
+  
+Search(Intial_State):
+  frontier <- priority queue
+  frontier.push(0, Intital_State)
+  while frontier is not empty:
+    current <- frontier.pop
+    if Goal_Test(current):
+      return current
+    for succesor in Successor_States(current):
+      priority <- Heuristic(current) + Cost(current)
+      frontier.push(priority, succesor)
+  return no solution
+```
+### Results (Manhattan Heuristic)
+Cost of solution found: 116
+
+Number of states explored: 23563
+
+### Results (Improved Manhattan Heuristic)
+Cost of solution found: 116
+
+Number of states explored: 23475
+
+### Conclusion
+
+Of all the search algorithms, A* returned the optimal path with the lowest number of states explored. The best result was when the improved manhattan distance function was used as the hueristic. Although A* was the best search algorithm, uniform cost search and breadth-first search yielded similar results. This is due to the fact the cost of each move is one and the board is so small it is hard to develop a heuristic function that makes a major difference to the number of states explored
 # References
+Wikimedia Foundation. (2022, August 19). Klotski. Wikipedia. Retrieved September 29, 2022, from https://en.wikipedia.org/wiki/Klotski 
