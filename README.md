@@ -50,7 +50,7 @@ Search(Intial_State):
 
 ## Depth-First Search
 ### Premise
-Using a last in first out queue we will explore the possible states by exploring the latest state added to the frontier. TODO: add more
+Using a last in first out queue we will explore the possible states by exploring the latest state added to the frontier.
 
 ### Pseudo Code
 ```
@@ -77,11 +77,11 @@ Number of states explored: 13778
 
 ### Conclusion
 
-Depth-First search did not find the optimal solution but it did explore around half of the states that any of the algorithms that found the optimal solutions used. TODO
+Depth-First search did not find the optimal solution but it did explore around half of the states that any of the algorithms that found the optimal solutions used. 
 
 ## Iterative Depth First Search
 ### Premise
-Using a last in first out queue we will explore the possible states by exploring the latest state added to the frontier. Instead of exploring the most recently discovered state until the solution is found, the algorithm will explore up until a certain depth is met. Once the depth is met, a new search will run with a depth limit that is one higher. Pruning may be the reason why ids performs similarly to dfs. TODO: add more
+Using a last in first out queue we will explore the possible states by exploring the latest state added to the frontier. Instead of exploring the most recently discovered state until the solution is found, the algorithm will explore up until a certain depth is met. Once the depth is met, a new search will run with a depth limit that is one higher. Pruning may be the reason why ids performs similarly to dfs. 
 
 ### Pseudo Code
 ```
@@ -116,7 +116,7 @@ Iterative Depth-First search did not find the optimal solution but it did explor
 
 ## Breadth-First Search
 ### Premise
-Using a first in first out queue we will explore the possible states by exploring the oldest state added to the frontier. TODO: add more
+Using a first in first out queue we will explore the possible states by exploring the oldest state added to the frontier. 
 
 ### Pseudo Code
 ```
@@ -143,11 +143,11 @@ Number of states explored: 23700
 
 ### Conclusion
 
-Breadth-First search did find the optimal solution but it did explore the most states out of any of the algorithms that found the optimal solutions. TODO
+Breadth-First search did find the optimal solution but it did explore the most states out of any of the algorithms that found the optimal solutions.
 
 ## Uniform Cost Search
 ### Premise
-Using a priority queue, we will explore the possible game states by going through the frontier and looking at the state with the lowest cost. TODO: add more
+Using a priority queue, we will explore the possible game states by going through the frontier and looking at the state with the lowest cost. 
 
 ### Pseudo Code
 ```
@@ -178,7 +178,7 @@ Number of states explored: 23695
 
 ### Conclusion
 
-Uniform cost search achieved the same results as breadth-first search mainly because in this case, the cost of each move for this game is always 1 no matter what. This makes uniform cost search act the same as breadth-first search. The slight difference in explored states can be attributed to the way the priority queue handled comparisons for states with the same cost rather than doing first in first out. TODO
+Uniform cost search achieved the same results as breadth-first search mainly because in this case, the cost of each move for this game is always 1 no matter what. This makes uniform cost search act the same as breadth-first search. The slight difference in explored states can be attributed to the way the priority queue handled comparisons for states with the same cost rather than doing first in first out.
 
 # Heuristic Search Algorithms
 
@@ -198,7 +198,7 @@ Along with the manhattan distance which is the minimum number of moves needed to
 
 ## Greedy Breadth-First Search
 ### Premise
-Using the search algorithm, we will explore the possible game states by going through the frontier and looking at the state with the lowest heuristic value. TODO: add more
+Using the search algorithm, we will explore the possible game states by going through the frontier and looking at the state with the lowest heuristic value. 
 
 ### Pseudo Code
 ```
